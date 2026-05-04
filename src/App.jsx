@@ -3,7 +3,8 @@ import { io } from 'socket.io-client';
 import { Send, Bot, User, Activity, Brain, AlertCircle, Square } from 'lucide-react';
 import './index.css';
 
-const socket = io('https://agentic-chatbot-backend-gq08.onrender.com');
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
+const socket = io(BACKEND_URL);
 
 function App() {
   const [input, setInput] = useState('');
