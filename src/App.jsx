@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import { Send, Bot, User, Activity, Brain, AlertCircle, Square } from 'lucide-react';
 import './index.css';
 
-const socket = io('http://localhost:3001');
+const socket = io('https://agentic-chatbot-backend-gq08.onrender.com');
 
 function App() {
   const [input, setInput] = useState('');
@@ -113,23 +113,23 @@ function App() {
               <div className="msg-text">{msg.text}</div>
               {msg.thoughts && msg.thoughts.length > 0 && (
                 <div className="thought-process">
-                  <div className="thought-header"><Brain size={14}/> Reasoning Process</div>
+                  <div className="thought-header"><Brain size={14} /> Reasoning Process</div>
                   {msg.thoughts.map((t, i) => <div key={i} className="thought-item">{t}</div>)}
                 </div>
               )}
             </div>
           </div>
         ))}
-        
+
         {isWorking && (
           <div className="message bot">
             <Bot size={20} color="#60a5fa" />
             <div style={{ width: '100%' }}>
               <div className="msg-text">Working on it...</div>
-              
+
               {thoughts.length > 0 && (
                 <div className="thought-process active">
-                  <div className="thought-header"><Brain size={14}/> Reasoning Process</div>
+                  <div className="thought-header"><Brain size={14} /> Reasoning Process</div>
                   {thoughts.map((t, i) => <div key={i} className="thought-item">{t}</div>)}
                 </div>
               )}
